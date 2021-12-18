@@ -1,7 +1,6 @@
 <script lang="ts">
     export let component: "h1" | "h2" | "h3" | "h4" | "h5" = "h3";
     export let casing: "uppercase" | "default" = "default";
-    export let className: string = "";
     export let weight:
         | "thin"
         | "extra-light"
@@ -13,6 +12,8 @@
         | "extra-bold"
         | "black" = "bold";
     export let font: "heading" | "body" = "heading";
+    let className = "";
+    export { className as class };
 </script>
 
 <h1

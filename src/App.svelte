@@ -1,7 +1,8 @@
 <script lang="ts">
 	import Landing from "@pages/Landing.svelte";
-	import { Route, Router, useFocus } from "svelte-navigator";
+	import { Route,Router } from "svelte-navigator";
 	import Navbar from "./components/Navbar.svelte";
+	import Product from "./pages/Product.svelte";
 </script>
 
 <head>
@@ -16,6 +17,9 @@
 	<div>
 		<Route path="/">
 			<Landing />
+		</Route>
+		<Route path="product/:id">
+			<Product />
 		</Route>
 	</div>
 </Router>
