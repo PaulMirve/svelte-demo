@@ -3,13 +3,18 @@
 
     let className = "";
     export { className as class };
+    export let fullWidth: boolean = false;
+    export let size: "small" | "default" = "default";
 
     const dispatch = createEventDispatcher();
 
     const onClick = () => dispatch("click");
 </script>
 
-<button on:click={onClick} class={`btn ${className}`}>
+<button
+    on:click={onClick}
+    class={`btn ${fullWidth && "fullwidth"} ${size} ${className}`}
+>
     <slot />
 </button>
 
@@ -47,5 +52,9 @@
             transform: translateY(-2px);
             box-shadow: 0 1rem 2rem rgba($color-primary, 0.4);
         }
+    }
+
+    .small {
+        height: 5rem;
     }
 </style>

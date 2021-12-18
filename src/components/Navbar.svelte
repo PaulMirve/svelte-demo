@@ -3,6 +3,9 @@
     import { shoppingCart } from "../store/store";
     import Avatar from "./Avatar.svelte";
     import ShoppingCart from "./Icon/ShoppingCart.svelte";
+    import ShoppingCartComponent from "./ShoppingCart.svelte";
+
+    let isMenuOpen = false;
 </script>
 
 <Router primary={false}>
@@ -19,13 +22,17 @@
             <a href="/" class="link">Contact</a>
         </div>
         <span class="actions">
-            <div class="cart-wrapper">
+            <div class="cart-wrapper" on:click={() => (isMenuOpen = true)}>
                 <ShoppingCart />
                 {#if $shoppingCart.length > 0}
                     <div class="badge">
                         {$shoppingCart.length}
                     </div>
                 {/if}
+                <ShoppingCartComponent
+                    open={isMenuOpen}
+                    onClose={() => (isMenuOpen = false)}
+                />
             </div>
 
             <Avatar name="Paul Miranda" />
