@@ -32,7 +32,7 @@
 
 {#if product}
     <div class="main">
-        <h5 class="company">Company name</h5>
+        <h5 class="company">{product.company}</h5>
         <img class="image" src={productImage} alt={product.name} />
         <div class="gallery">
             {#each product.gallery as photo}
@@ -102,7 +102,7 @@
 
         @include respond(tab-land) {
             padding: 0 0 10rem 0;
-            grid-template-columns: 4rem 1fr 4rem;
+            grid-template-columns: 1fr;
             grid-template-rows: repeat(3, auto) 1fr repeat(2, auto);
             grid-template-areas:
                 "image image image"

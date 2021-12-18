@@ -4,6 +4,7 @@ const products: Product[] = [
     {
         id: 1,
         name: "Jordan Air 1",
+        company: 'Nike',
         description: `Ad sequi deserunt tempore et excepturi corporis repellat perspiciatis non, sit molestias quaerat minima ut sed incidunt sunt nostrum, nisi delectus earum mollitia. Id eius aperiam tenetur accusantium corporis?
         Distinctio, reiciendis. Excepturi quisquam commodi deleniti adipisci voluptatem temporibus iure quibusdam corporis suscipit maiores harum nostrum perspiciatis dolore enim possimus eveniet, voluptas, et numquam porro? Explicabo reiciendis nulla quibusdam optio!`,
         image: "/images/product-1/photo-1.jpg",
@@ -17,7 +18,8 @@ const products: Product[] = [
     },
     {
         id: 2,
-        name: "Nike Air Force",
+        name: "Air Force",
+        company: 'Nike',
         description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem sint architecto delectus quam, facilis perferendis atque optio ab beatae explicabo voluptatem maiores velit numquam, dolore inventore corrupti animi? Ex, assumenda.
         Consequuntur.`,
         image: "/images/product-2/photo-1.jpg",
@@ -31,7 +33,8 @@ const products: Product[] = [
     },
     {
         id: 3,
-        name: "Adidas Grand Court",
+        name: "Grand Court",
+        company: 'Adidas',
         description: `Molestias, placeat? Pariatur eum ducimus odio asperiores aut totam in quidem odit. Cum aperiam ex saepe. Distinctio corrupti debitis asperiores. Nulla nam fugiat sint suscipit est eius quos voluptates inventore.
         Obcaecati soluta doloremque dicta cupiditate recusandae esse molestias voluptates iste. Incidunt, ut impedit. Impedit optio soluta eum suscipit labore dolores est, eos incidunt, doloremque accusantium iure sequi, exercitationem repudiandae molestiae?`,
         image: "/images/product-3/photo-1.jpg",
