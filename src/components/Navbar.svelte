@@ -23,6 +23,9 @@
     .navbar {
         display: flex;
         align-items: center;
+        background-color: white;
+        position: fixed;
+        width: 100%;
     }
 
     .title {

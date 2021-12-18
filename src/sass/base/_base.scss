@@ -29,4 +29,12 @@ html {
 body {
     box-sizing: border-box;
     padding: $padding;
+
+    @include respond(tab-land) {
+        padding: 0 4rem;
+    }
+
+    @include respond(phone) {
+        padding: 0;
+    }
 }

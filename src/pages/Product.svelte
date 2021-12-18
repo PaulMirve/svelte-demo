@@ -71,27 +71,63 @@
 
 <style lang="scss">
     @use "../sass/abstract/variables" as *;
+    @use "../sass/abstract/mixins" as *;
 
     .main {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, auto) 1fr repeat(2, auto) 1fr;
+        grid-template-rows: repeat(2, auto) 1fr repeat(2, auto);
+        column-gap: 4rem;
         row-gap: 2rem;
         padding: 4rem;
+        padding-top: $padding-top;
         grid-template-areas:
             "image company"
             "image name"
             "image description"
             "image price"
-            "gallery actions"
-            ". .";
+            "gallery actions";
+
+        @include respond(tab-land) {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, auto) 1fr repeat(2, auto);
+            grid-template-areas:
+                "image"
+                "company"
+                "name"
+                "description"
+                "price"
+                "actions";
+        }
+
+        @include respond(tab-land) {
+            padding: 0 0 10rem 0;
+            grid-template-columns: 4rem 1fr 4rem;
+            grid-template-rows: repeat(3, auto) 1fr repeat(2, auto);
+            grid-template-areas:
+                "image image image"
+                ". company ."
+                ". name ."
+                ". description ."
+                ". price ."
+                ". actions .";
+        }
     }
 
     .image {
         grid-area: image;
-        height: 60rem;
+        width: 60rem;
         border-radius: 20px;
         aspect-ratio: 1;
+        justify-self: center;
+
+        @include respond(tab-land) {
+            width: 100%;
+        }
+
+        @include respond(phone) {
+            border-radius: 0;
+        }
     }
 
     .company {
@@ -122,6 +158,10 @@
         display: grid;
         grid-template-columns: 1fr 2fr;
         gap: 2rem;
+
+        @include respond(tab-land) {
+            grid-template-columns: 1fr;
+        }
     }
 
     .counter {
@@ -151,9 +191,9 @@
         grid-area: gallery;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
+        gap: 4rem;
         place-items: center;
-        padding-right: 8rem;
+        justify-self: center;
 
         &__photo {
             width: 12rem;
@@ -161,6 +201,10 @@
             border-radius: 20px;
             object-fit: cover;
             cursor: pointer;
+        }
+
+        @include respond(tab-land) {
+            display: none;
         }
     }
 
