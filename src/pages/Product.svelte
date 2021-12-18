@@ -7,6 +7,7 @@
     import ShoppingCart from "../components/Icon/ShoppingCart.svelte";
     import { getProducts } from "../db";
     import type { Product } from "../interfaces/Product";
+    import { shoppingCart } from "../store/store";
 
     let product: Product;
     let quantity = 0;
@@ -26,6 +27,12 @@
     const decreaseCounter = () => {
         if (quantity > 0) {
             quantity -= 1;
+        }
+    };
+
+    const addToCart = () => {
+        if (quantity > 0) {
+            shoppingCart.addProduct({ product, count: quantity });
         }
     };
 </script>
@@ -59,7 +66,7 @@
                     <Plus />
                 </button>
             </div>
-            <Button>
+            <Button on:click={addToCart}>
                 <ShoppingCart />
                 Add to cart
             </Button>

@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
     import { Router, Link } from "svelte-navigator";
+    import { shoppingCart } from "../store/store";
     import Avatar from "./Avatar.svelte";
     import ShoppingCart from "./Icon/ShoppingCart.svelte";
 </script>
@@ -18,7 +19,15 @@
             <a href="/" class="link">Contact</a>
         </div>
         <span class="actions">
-            <ShoppingCart />
+            <div class="cart-wrapper">
+                <ShoppingCart />
+                {#if $shoppingCart.length > 0}
+                    <div class="badge">
+                        {$shoppingCart.length}
+                    </div>
+                {/if}
+            </div>
+
             <Avatar name="Paul Miranda" />
         </span>
     </nav>
@@ -27,6 +36,25 @@
 <style lang="scss">
     @use "../sass/abstract/variables" as *;
     @use "../sass/abstract/mixins" as *;
+
+    .cart-wrapper {
+        position: relative;
+    }
+
+    .badge {
+        position: absolute;
+        background-color: $color-primary;
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: white;
+        width: 2rem;
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        right: -1rem;
+        top: -1rem;
+    }
 
     .menu {
         height: 2px;

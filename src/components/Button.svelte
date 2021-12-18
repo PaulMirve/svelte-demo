@@ -1,9 +1,15 @@
 <script lang="ts">
+    import { createEventDispatcher } from "svelte";
+
     let className = "";
     export { className as class };
+
+    const dispatch = createEventDispatcher();
+
+    const onClick = () => dispatch("click");
 </script>
 
-<button class={`btn ${className}`}>
+<button on:click={onClick} class={`btn ${className}`}>
     <slot />
 </button>
 
